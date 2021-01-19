@@ -1,0 +1,37 @@
+{% load naveen %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student information</title>
+</head>
+<body>
+   <table align="center" border="2">
+       <tr>
+           <th rowspan="2">ID NO:</th>
+           <th rowspan="2">Student Name</th>
+           <th colspan="6">Marks</th>
+       </tr>
+       <tr>
+           <th>Odia</th>
+           <th>Math</th>
+           <th>Eng</th>
+           <th>Hindi</th>
+           <th>Telugu</th>
+           <th>Science</th>
+           <th>Totals</th>
+
+       </tr>
+       {% for x in data %}
+           <tr>
+              <th>{{ x.idno }}</th>
+              <th>{{ x.name }}</th>
+              {% for y in x.mark %}
+                  <th>{{ y }}</th>
+              {% endfor %}
+              <th>{% doTotal x.mark %}</th>
+           </tr>
+       {% endfor %}
+   </table>
+</body>
+</html>
